@@ -1,5 +1,5 @@
 # ClientChatUnity
-create chat with unity and server golang
+create chat with unity and server golang (Websocket)
 
 #Unity
 version 2018.2.13f1
