@@ -11,6 +11,6 @@ Link: https://goo.gl/Et2NBg
 # How to run this project
 Open project with unity the same version
 
-default port golang : 7878
+default websocket port : 7878
 
 # T.CODE Workshop
