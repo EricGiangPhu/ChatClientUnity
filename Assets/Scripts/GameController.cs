@@ -9,35 +9,37 @@ public class GameController : MonoBehaviour {
 	public GameObject ChatView;
 	public GameObject Container;
 
-	public SocketManager socketManager; 
+	public SocketManager socketManager;
 
 	public GameObject ElementMessage;
-	public InputField inputTextFild;
+	public InputField inputTextField;
 	void Start () {
-		deActiveChatView();
-		socketManager.callbackMessage+= addMessageToUI;
+		deActiveChatView ();
+		socketManager.callbackMessage += addMessageToUI;
 	}
-	
+
 	// Update is called once per frame
 	void Update () {
-		
+
 	}
 
-	public void activeChatView() {
-		ChatView.SetActive(true);
+	public void activeChatView () {
+		ChatView.SetActive (true);
 	}
 
-	public void deActiveChatView() {
-		ChatView.SetActive(false);
+	public void deActiveChatView () {
+		ChatView.SetActive (false);
 	}
 
-	public void SendMessage() {		
-		socketManager.sendWSMessage(inputTextFild.text);
-		inputTextFild.text = "";
+	public void SendMessage () {
+		if (socketManager != null) {
+			socketManager.sendWSMessage (inputTextField.text);
+			inputTextField.text = "";
+		}
 	}
 
-	public void addMessageToUI(string message) {
-		GameObject chatMessage = Instantiate(ElementMessage, Container.transform);
-		chatMessage.GetComponentInChildren<Text>().text = message;
+	public void addMessageToUI (string message) {
+		GameObject chatMessage = Instantiate (ElementMessage, Container.transform);
+		chatMessage.GetComponentInChildren<Text> ().text = message;
 	}
 }
